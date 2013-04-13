@@ -2,7 +2,7 @@ var previousTicker = { high: 0, last: 0, bid: 0, volume: 0, low: 0, ask: 0 };
 
 setInterval(function () {
   
-  $.getJSON('https://www.bitstamp.net/api/ticker', function (ticker) {
+  $.getJSON('https://www.bitstamp.net/api/ticker/', function (ticker) {
     
     // loop through all object's attribute
     for (key in ticker) {
