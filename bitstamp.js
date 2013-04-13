@@ -6,7 +6,7 @@ setInterval(function () {
     
     // loop through all object's attribute
     for (key in ticker) {
-      console.update
+      
       // update HTML table
       $('#' + key).text(ticker[key]);
       
@@ -25,4 +25,4 @@ setInterval(function () {
     previousTicker = ticker;
   });
   
-}, 2442);
+}, 2542);
