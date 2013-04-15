@@ -1,5 +1,4 @@
-Bitstamp Ticker
-===============
+# [Bitstamp](https://bitstamp.net) Ticker
 
 Bitstamp ticker updated every two and half seconds.  
-Can by seen here: http://nyg.github.io/bitstamp-ticker/
+Demo @ [nyg.github.io/bitstamp-ticker](https://nyg.github.io/bitstamp-ticker/).

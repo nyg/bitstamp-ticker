@@ -1,9 +1,28 @@
+/* General */
+
 * {
   margin: 0px;
   padding: 0px;
   font-family: Menlo, monospace;
   font-size: 18px;
 }
+
+/* BitStamp link */
+
+p {
+  text-align: center;
+}
+
+a {
+  font-size: 10px;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Ticker table */
 
 table {
   border-collapse: collapse;
