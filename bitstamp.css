@@ -9,12 +9,12 @@
 
 /* BitStamp link */
 
-p {
+p, a {
   text-align: center;
+  font-size: 10px;
 }
 
 a {
-  font-size: 10px;
   text-decoration: none;
 }
 
