@@ -1,42 +1,41 @@
-var previousTicker = { high: 0, last: 0, bid: 0, volume: 0, low: 0, ask: 0 };
+var previousTicker = { high: 0, last: 0, bid: 0, volume: 0, low: 0, ask: 0 }
 
-setInterval(function () {
+setInterval(function() {
 
-  $.ajax({
+    $.ajax({
 
-    url: 'https://query.yahooapis.com/v1/public/yql',
-    jsonp: 'callback',
-    dataType: 'jsonp',
+        url: 'https://query.yahooapis.com/v1/public/yql',
+        jsonp: 'callback',
+        dataType: 'jsonp',
 
-    data: {
-      q: 'select * from html where url = "https://www.bitstamp.net/api/ticker/"',
-      format: 'json'
-    },
+        data: {
+            q: 'select * from json where url = "https://www.bitstamp.net/api/ticker/"',
+            format: 'json'
+        },
 
-    success: function(response) {
+        success: function(response) {
 
-      // parse response from YQL
-      var ticker = $.parseJSON(response.query.results.body);
+            var ticker = response.query.results.json
 
-      // loop through all the ticker's attributes
-      for (key in ticker) {
+            // loop through all the ticker's attributes
+            for (key in ticker) {
 
-        // update HTML table
-        $('#' + key).text(ticker[key]);
+                // update HTML table
+                $('#' + key).text(ticker[key])
 
-        // update text color
-        if (ticker[key] > previousTicker[key]) {
-          $('#' + key).css('color', 'green');
+                // update text color
+                if (ticker[key] > previousTicker[key]) {
+                    $('#' + key).css('color', 'green')
+                }
+                else if (ticker[key] < previousTicker[key]) {
+                    $('#' + key).css('color', 'red')
+                }
+                else {
+                    $('#' + key).css('color', 'black')
+                }
+            }
+
+            previousTicker = ticker
         }
-        else if (ticker[key] < previousTicker[key]) {
-          $('#' + key).css('color', 'red');
-        }
-        else {
-          $('#' + key).css('color', 'black');
-        }
-      }
-
-      previousTicker = ticker;
-    }
-  });
-}, 1000);
+    })
+}, 1000)

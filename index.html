@@ -1,49 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Bitstamp Ticker</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="bitstamp.css" type="text/css" />
-  </head>
+    <head>
+        <title>Bitstamp Ticker</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="bitstamp.css" type="text/css" />
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="2" id="last">0.00</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="last text bb">last</td>
+            </tr>
+            <tr>
+                <td id="high" class="br">0.00</td>
+                <td id="low">0.00</td>
+            </tr>
+            <tr>
+                <td class="high text br bb">high</td>
+                <td class="low text bb">low</td>
+            </tr>
+            <tr>
+                <td id="bid" class="br">0.00</td>
+                <td id="ask">0.00</td>
+            </tr>
+            <tr>
+                <td class="bid text br bb">bid</td>
+                <td class="ask text bb">ask</td>
+            </tr>
+            <tr>
+                <td colspan="2" id="volume">0.00000000</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="volume text">volume</td>
+            </tr>
+        </table>
 
-  <body>
-    <table>
-      <tr>
-        <td colspan="2" id="last">0.00</td>
-      </tr>
-      <tr>
-        <td colspan="2" class="last text bb">last</td>
-      </tr>
-      <tr>
-        <td id="high" class="br">0.00</td>
-        <td id="low">0.00</td>
-      </tr>
-      <tr>
-        <td class="high text br bb">high</td>
-        <td class="low text bb">low</td>
-      </tr>
-      <tr>
-        <td id="bid" class="br">0.00</td>
-        <td id="ask">0.00</td>
-      </tr>
-      <tr>
-        <td class="bid text br bb">bid</td>
-        <td class="ask text bb">ask</td>
-      </tr>
-      <tr>
-        <td colspan="2" id="volume">0.00000000</td>
-      </tr>
-      <tr>
-        <td colspan="2" class="volume text">volume</td>
-      </tr>
-    </table>
+        <p>
+            <a href="https://nyg.github.io">home</a> -
+            <a href="https://github.com/nyg/bitstamp-ticker">github</a>
+        </p>
 
-    <p>
-      <a href="https://nyg.github.io">home</a> -
-      <a href="https://github.com/nyg/bitstamp-ticker">github</a>
-    </p>
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="bitstamp.js"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="bitstamp.js"></script>
+    </body>
 </html>
