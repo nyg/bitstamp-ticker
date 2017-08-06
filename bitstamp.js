@@ -1,41 +1,34 @@
-var previousTicker = { high: 0, last: 0, bid: 0, volume: 0, low: 0, ask: 0 }
+var previousTicker = { ask: 0, bid: 0, high: 0, last: 0, low: 0, volume: 0 }
 
-setInterval(function() {
+setInterval(getTicker, 1000)
 
-    $.ajax({
+function getTicker() {
+    nygFetch
+        .fetchJSON('https://www.bitstamp.net/api/ticker/', true)
+        .then(ticker => {
 
-        url: 'https://query.yahooapis.com/v1/public/yql',
-        jsonp: 'callback',
-        dataType: 'jsonp',
-
-        data: {
-            q: 'select * from json where url = "https://www.bitstamp.net/api/ticker/"',
-            format: 'json'
-        },
-
-        success: function(response) {
-
-            var ticker = response.query.results.json
-
-            // loop through all the ticker's attributes
             for (key in ticker) {
 
+                var element = document.getElementById(key)
+                if (element == null) {
+                    continue
+                }
+
                 // update HTML table
-                $('#' + key).text(ticker[key])
+                element.textContent = ticker[key]
 
                 // update text color
                 if (ticker[key] > previousTicker[key]) {
-                    $('#' + key).css('color', 'green')
+                    element.style.color = 'green'
                 }
                 else if (ticker[key] < previousTicker[key]) {
-                    $('#' + key).css('color', 'red')
+                    element.style.color = 'red'
                 }
                 else {
-                    $('#' + key).css('color', 'black')
+                    element.style.color = 'black'
                 }
             }
 
             previousTicker = ticker
-        }
-    })
-}, 1000)
+        })
+}
