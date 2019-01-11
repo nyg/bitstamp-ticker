@@ -15,7 +15,7 @@ function getTicker() {
                 }
 
                 // update HTML table
-                element.textContent = ticker[key]
+                element.textContent = parseFloat(ticker[key]).toFixed(2)
 
                 // update text color
                 if (ticker[key] > previousTicker[key]) {
