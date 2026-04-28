@@ -18,7 +18,8 @@ function getTicker() {
                 }
 
                 // update HTML table
-                element.textContent = parseFloat(ticker[key]).toFixed(2)
+                const value = parseFloat(ticker[key]).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                element.textContent = (key === 'volume' ? '₿ ' : '$ ') + value
 
                 // update text color
                 if (ticker[key] > previousTicker[key]) {
