@@ -3,8 +3,11 @@ var previousTicker = { ask: 0, bid: 0, high: 0, last: 0, low: 0, volume: 0 }
 setInterval(getTicker, 1000)
 
 function getTicker() {
-    nygFetch
-        .fetchJSON('https://www.bitstamp.net/api/ticker/', true)
+    fetch('https://www.bitstamp.net/api/ticker/')
+        .then(response => {
+            if (!response.ok) throw new Error(response.status)
+            return response.json()
+        })
         .then(ticker => {
 
             for (key in ticker) {
