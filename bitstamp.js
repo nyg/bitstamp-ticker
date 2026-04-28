@@ -19,7 +19,7 @@ function getTicker() {
 
                 // update HTML table
                 const amount = parseFloat(ticker[key])
-                const currency = key === 'volume' ? 'BTC'
+                const currency = key === 'volume' ? 'BTC' : 'USD'
                 element.textContent = new Intl.NumberFormat(navigator.language, { style: 'currency', currency, currencyDisplay: 'narrowSymbol' })
                     .format(amount)
                     .replace('BTC', '₿')
