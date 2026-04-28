@@ -18,8 +18,13 @@ function getTicker() {
                 }
 
                 // update HTML table
-                const value = parseFloat(ticker[key]).toLocaleString(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-                element.textContent = (key === 'volume' ? '₿ ' : '$ ') + value
+                const amount = parseFloat(ticker[key])
+                if (key === 'volume') {
+                    element.textContent = '₿ ' + new Intl.NumberFormat(navigator.language, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount)
+                }
+                else {
+                    element.textContent = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: 'USD', currencyDisplay: 'narrowSymbol' }).format(amount)
+                }
 
                 // update text color
                 if (ticker[key] > previousTicker[key]) {
